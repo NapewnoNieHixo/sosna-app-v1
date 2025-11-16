@@ -1,0 +1,231 @@
+* {
+  margin: unset;
+  padding: unset;
+  box-sizing: border-box;
+}
+
+/* Tło – delikatny aero gradient */
+body {
+  background: linear-gradient(135deg, #d4f1ff, #bde8ff 40%, #e8f9ff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Pasek nawigacji – błyszczący zielony Vista */
+nav {
+  background: linear-gradient(#00a573, #007a56);
+  height: 3rem;
+  line-height: 3rem;
+  color: white;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.container {
+  padding: 1rem;
+}
+
+/* Formularz */
+#itemForm label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #005e8a;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+/* Inputy – szklano-białe, lekkie światło */
+#itemForm input {
+  height: 5rem;
+  width: 15rem;
+  text-align: center;
+  border: 1px solid #a6dfff;
+  border-radius: 14px;
+  background: linear-gradient(#ffffff, #f2fbff);
+  box-shadow: inset 0 0 8px rgba(0,140,200,0.2);
+  font-size: 1.1rem;
+  color: #004c7a;
+}
+
+#quantityInput, #priceInput {
+  width: 3rem;
+}
+
+/* Przycisk dodawania */
+#addItemButton {
+  border: unset;
+  background: linear-gradient(#d0f1ff, #aee6ff);
+  color: #005f96;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 110, 160, 0.25);
+}
+
+#addItemButton:hover {
+  background: linear-gradient(#ffffff, #d6f6ff);
+}
+
+/* Lista rzeczy */
+#itemsDiv {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* Pojedynczy element – glassmorphism Aero 2008 */
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.6);
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Checkbox – pod Aero */
+.checkbox {
+  height: 100%;
+  width: 2.5rem;
+  accent-color: #3ec7ff;
+  cursor: pointer;
+}
+
+/* Nazwa przedmiotu */
+.itemInfo {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemInfo p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #005a8c;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+/* Przycisk usuwania – czerwony Vista */
+.deleteButton {
+  margin-left: auto;
+  border: unset;
+  background: linear-gradient(#ffe0e0, #ffd1d1);
+  color: #9e0000;
+  font-size: 0.8rem;
+  width: 2.5rem;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(255,0,0,0.25);
+}
+
+.deleteButton:hover {
+  background: linear-gradient(#ffffff, #ffe5e5);
+}
+
+.deleteButton:active {
+  margin-top: 3px;
+}
+
+/* Kupiony – pastelowy zielony aero */
+.purchased {
+  background: linear-gradient(#c9ffe0, #b5ffd7);
+  color: #006040;
+  border: 1px solid #9ff5c8;
+  box-shadow: inset 0 0 8px rgba(0,150,80,0.25);
+  opacity: 0.9;
+}
+
+.purchased p {
+  text-decoration: line-through;
+}
+
+/* Aero Bubbles – ruchome, błyszczące kule */
+.aero-bubble {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: bubbleFloat 22s infinite ease-in-out;
+}
+
+.aero-bubble.blue {
+  background: radial-gradient(circle, #d6f5ff, #97ddff, #00b7ff);
+}
+
+.aero-bubble.green {
+  background: radial-gradient(circle, #d9ffec, #86ffcf, #00d685);
+}
+
+.aero-bubble.pink {
+  background: radial-gradient(circle, #ffd9fa, #ffb3ec, #ff6cd9);
+}
+
+/* Pozycji różnych kul */
+#aero-bubbles-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.aero-bubble:nth-child(1) { width: 180px; height: 180px; top: 10%; left: 5%; }
+.aero-bubble:nth-child(2) { width: 240px; height: 240px; top: 60%; left: 75%; }
+.aero-bubble:nth-child(3) { width: 150px; height: 150px; top: 70%; left: 20%; }
+
+/* Subtelna animacja */
+@keyframes bubbleFloat {
+  0%   { transform: translateY(0px) translateX(0px); }
+  50%  { transform: translateY(-60px) translateX(20px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+.itemform label::after,.itemform input::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 160%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.0) 0%,
+    rgba(255,255,255,0.35) 45%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(25deg);
+  animation: shineMove 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shineMove {
+  0% { transform: translateX(-60%) rotate(25deg); }
+  50% { transform: translateX(60%) rotate(25deg); }
+  100% { transform: translateX(-60%) rotate(25deg); }
+}
+
+@media (max-width: 600px) {
+  #itemForm input {
+    width: 100%;
+    height: 4rem;
+  }
+
+  .item {
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 0.6rem;
+  }
+
+  .itemInfo p {
+    font-size: 1rem;
+  }
+}

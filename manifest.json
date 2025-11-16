@@ -1,0 +1,17 @@
+{
+    "name": "Sosna App v1",
+    "short_name": "Sosna App",
+    "icons": [
+        {
+            "src": "./assets/sosna-icon.jpg",
+            "sizes": "400x400",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "/sosnaapp/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
