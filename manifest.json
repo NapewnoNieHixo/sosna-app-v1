@@ -11,7 +11,7 @@
     ],
     "theme_color": "#FFFFFF",
     "background_color": "#FFFFFF",
-    "start_url": "/sosnaapp/",
+    "start_url": "/sosna-app-v1/",
     "display": "standalone",
     "orientation": "portrait"
 }
